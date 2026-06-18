@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #14100e;
+  --color-maroon: #4a1114;
+  --color-royal: #7a1e22;
+  --color-gold: #c9a24a;
+  --color-cream: #fff6e5;
+  --color-warmwhite: #fffcf4;
+  --color-fire: #d96b2b;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-warmwhite);
+  color: var(--color-charcoal);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* subtle repeating Indian motif used as a background texture */
+.pattern-bg {
+  background-image: radial-gradient(circle at 1px 1px, rgba(201, 162, 74, 0.18) 1.4px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.gold-underline {
+  position: relative;
+}
+.gold-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background-color: var(--color-gold);
+  transition: width 0.3s ease;
+}
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
