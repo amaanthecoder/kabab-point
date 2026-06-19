@@ -16,6 +16,12 @@ export default function ContactForm() {
     setLoading(true);
     setError("");
 
+    if (!supabase) {
+      setError("Messaging system is being set up. Please contact us on WhatsApp or email.");
+      setLoading(false);
+      return;
+    }
+
     const { error: dbError } = await supabase.from("contact_messages").insert({
       name: form.name,
       contact: form.contact,

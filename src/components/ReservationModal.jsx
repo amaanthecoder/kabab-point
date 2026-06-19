@@ -19,6 +19,12 @@ export default function ReservationModal({ isOpen, onClose }) {
     setLoading(true);
     setError("");
 
+    if (!supabase) {
+      setError("Booking system is being set up. Please call or WhatsApp us directly.");
+      setLoading(false);
+      return;
+    }
+
     const { error: dbError } = await supabase.from("reservations").insert({
       name: form.name,
       phone: form.phone,

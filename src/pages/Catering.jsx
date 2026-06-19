@@ -45,6 +45,12 @@ export default function Catering() {
     setLoading(true);
     setError("");
 
+    if (!supabase) {
+      setError("Inquiry system is being set up. Please contact us on WhatsApp directly.");
+      setLoading(false);
+      return;
+    }
+
     const { error: dbError } = await supabase.from("catering_inquiries").insert({
       name: form.name,
       phone: form.phone,
